@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="menu">
+        <h2 class="h2name">Balloon Shop</h2>
+        <div class="btn" style="text-align: right;">
+            <a style="margin-right: 5%;" href="/statistics"><button>Statistics</button></a></div>
+    <br>
+    </div>
+    <br> <br>
+    <div class="divshop">
+        <h4 class="h4balloons">Buy any balloon color</h4>
+        <span>Please buy one balloon at a time.</span>
+        <br> <br>
+        <form action="/buy" method="post">
+            <div class="balloondiv">
+                <label for="balloons" >Color Of Balloon: </label>
+               <input type="text" name="balloon" id="balloons">
+            </div>
+            <div class="btns">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .btns{
+        width: 70%;
+        text-align: right;
+    }
+    input{
+        width: 50%;
+    }
+    .balloondiv{
+        width: 70%;
+        text-align: left;
+    }
+    .divshop{
+        width: 70%;
+        margin: auto;
+    }
+    .h4ballooons{
+
+    }
+    .container{
+        width: 100%;
+        margin: 0px;
+    }
+    .menu{
+        width: 100%;
+        background: cyan;
+        min-height: 50px;
+        margin: 0;
+        box-shadow: 2px 2px 2px grey;
+    }
+    .h2name{
+        text-align: center;
+        margin: 0;
+        text-transform: uppercase;
+    }
+</style>
