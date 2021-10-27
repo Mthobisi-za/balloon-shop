@@ -7,13 +7,19 @@ module.exports = function factory(pool){
         if(tableone.length == 0){
             console.log("does not exist in table one");
             //check table two 
+            var tabletwo = await useDb.getDataFromTableTwo(fullStr);
+            if(tabletwo.length == 0 && tableone[0].count >= 6){
+                ///set new data to table two
+            }else{
+                // update the counter
+            }
         }else{
             //check table two first
             var tabletwo = await useDb.getDataFromTableTwo(fullStr);
-            if(tabletwo.length == 0){
-                ///set data to table one
+            if(tabletwo.length == 0 && tableone[0].count >= 6){
+                ///set new data to table two
             }else{
-                //update the current one
+                //update table one
             }
         }
     }
