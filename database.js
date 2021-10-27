@@ -23,9 +23,10 @@ module.exports = function database(pool){
         if(status){
             await pool.query("insert into invalid_color (color_name, count)", [color, count])  
         }else{
-            await pool.query("update valid_color set count =+ count where color = $1", [color])
+            await pool.query("update valid_color set count =+ count where color_name = $1", [color])
         }
     }
+    
     return{
         getDataFromTableOne,
         getDataFromTableTwo,

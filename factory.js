@@ -9,7 +9,7 @@ module.exports = function factory(pool){
             var tabletwo = await useDb.getDataFromTableTwo(fullStr);
             if(tabletwo.length == 0){
                 ///set new data to table two
-                await useDb.setDataToTableTwo(fullStr, true, tableone[0].count)
+                await useDb.setDataToTableTwo(fullStr, false);
             }else{
                 await useDb.setDataToTableOne(fullStr);
                 // update the counter
@@ -18,7 +18,7 @@ module.exports = function factory(pool){
             //check table two first
             var tabletwo = await useDb.getDataFromTableTwo(fullStr);
             if(tabletwo.length == 0 && tableone[0].count >= 6){
-                await useDb.setDataToTableTwo(fullStr, false)
+                await useDb.setDataToTableTwo(fullStr, true, tableone[0].count)
                 ///set new data to table two
             }else{
                 await useDb.setDataToTableOne(fullStr, "update");
