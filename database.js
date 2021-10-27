@@ -19,11 +19,17 @@ module.exports = function database(pool){
              await pool.query("insert into invalid_color (color_name, count)", [color, 1])  
         }
     }
-    async function setDataToTableTwo(color){
-        await pool.query("update valid_color set count =+ count where color = $1", [color])
+    async function setDataToTableTwo(color, status, count){
+        if(status){
+            await pool.query("insert into invalid_color (color_name, count)", [color, count])  
+        }else{
+            await pool.query("update valid_color set count =+ count where color = $1", [color])
+        }
     }
     return{
         getDataFromTableOne,
-        getDataFromTableTwo
+        getDataFromTableTwo,
+        setDataToTableOne,
+        setDataToTableTwo
     }
 }
